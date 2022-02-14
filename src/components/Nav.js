@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "../Styles/Nav.css"
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,30 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Grid from '@mui/material/Grid';
 import logo from "../logo.png";
 
-const Nav = () => {
-    const [busqueda, setBusqueda] = useState("chocolate")
-    const [valorDelInput, setValorDelInput] = useState("")
-    const [productos, setProductos] = useState([])
-
-
-    useEffect(() => {
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${busqueda}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setProductos(data)
-            });
-    }, [busqueda]);
-
-    const handleChange = (e) => {
-        setValorDelInput(e.target.value);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setBusqueda(valorDelInput);
-    };
-
-
+const Nav = ({ handleChange, handleSubmit }) => {
     return (
         <Box>
             <AppBar position="static" sx={{ display: "flex", bgcolor: "#fff159", boxShadow: 0, height: "100px" }}>
