@@ -11,33 +11,33 @@ import Grid from '@mui/material/Grid';
 import logo from "../logo.png";
 
 const Nav = () => {
-const [busqueda,setBusqueda]=useState("chocolate")
-const [valorDelInput, setValorDelInput]=useState("")
-const [productos, setProductos] = useState([])
+    const [busqueda, setBusqueda] = useState("chocolate")
+    const [valorDelInput, setValorDelInput] = useState("")
+    const [productos, setProductos] = useState([])
 
 
-useEffect(() => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${busqueda}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProductos(data)
-      });
-  }, [busqueda]);
-  
-  const handleChange = (e) => {
-    setValorDelInput(e.target.value); 
-  };
+    useEffect(() => {
+        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${busqueda}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setProductos(data)
+            });
+    }, [busqueda]);
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    setBusqueda(valorDelInput);
-  };
+    const handleChange = (e) => {
+        setValorDelInput(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setBusqueda(valorDelInput);
+    };
 
 
     return (
         <Box>
             <AppBar position="static" sx={{ display: "flex", bgcolor: "#fff159", boxShadow: 0, height: "100px" }}>
-                <Grid container spacing={2} mt={1} sx={{ display: "flex", justifyContent: "center" }}>
+                <Grid container spacing={2} mt={1} justifyContent="center" alignItems="center">
                     <Grid Item xs={3} sx={{ pl: "0" }}>
                         <Toolbar sx={{ height: "80%" }}>
                             <img src={logo} alt="logo manos" className="logo"></img>
