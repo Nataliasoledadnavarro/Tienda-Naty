@@ -1,11 +1,12 @@
 import Cards from "./Cards";
 import Grid from '@mui/material/Grid';
 
-const Section = () =>{
+const Section = ({productos}) =>{
+   
 
     return(
         <Grid container spacing={2} sx={8} justifyContent="flex-end">
-         <Cards/>
+         <Cards productos={productos}/>
         </Grid>
         
     )
