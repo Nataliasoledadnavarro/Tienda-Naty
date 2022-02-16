@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 const Main = ({productos}) =>{
     
     return(
-        <Grid sx={{bgcolor:"rgba(0,0,0,.1)", width:"100%", height:"100vh"}} xs={12} >
+        <Grid sx={{bgcolor:"rgba(0,0,0,.1)", width:"100%", height:"100%", pt:6}} >
          <Section productos={productos}/>
         </Grid>
     )

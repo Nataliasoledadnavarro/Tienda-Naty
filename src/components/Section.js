@@ -6,7 +6,7 @@ const Section = ({productos}) =>{
    
 
     return(
-        <Container xs={{mt:20}}>
+        <Container>
         <Grid container  alignItems="flex-end" direction="column">
          <Cards productos={productos}/>
         </Grid>

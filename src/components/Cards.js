@@ -14,9 +14,9 @@ const Cards = ({ productos }) => {
     display: "block",
     maxWidth: "100%",
     maxHeight: "100%",
-  });
-  const cards = productos.map((producto) => {
-    return (
+  })
+  return (
+    productos.map((producto) => (
       <Paper
         sx={{
           p: 2,
@@ -29,49 +29,49 @@ const Cards = ({ productos }) => {
         <Grid container>
           <Grid item>
             <ButtonBase sx={{ width: 200, height: 180 }}>
-              <Img alt="producto" src="https://placekitten.com/200/300" />
+              <Img alt={producto.title} src={producto.thumbnail} />
             </ButtonBase>
           </Grid>
           <Grid item sm container>
-            <Grid item xs direction="column">
-                <CardActions>
-                  <Typography
-                    gutterBottom
-                    variant="body1"
-                    component="p"
-                    sx={{ fontSize: "20px", fontWeight: "100" }}
-                  >
-                    {producto.title}
-                  </Typography>
-                </CardActions>
+            <Grid item xs>
+              <CardActions>
+                <Typography
+                  gutterBottom
+                  variant="body1"
+                  component="p"
+                  sx={{ fontSize: "20px", fontWeight: "100" }}
+                >
+                  {producto.title}
+                </Typography>
+              </CardActions>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ textDecoration: "line-through", mt: "3" }}
+              >
+                {producto.original_price != null && `$${producto.original_price}`}
+              </Typography>
+              <Box sx={{ display: "flex" }}>
                 <Typography
                   variant="body2"
-                  color="text.secondary"
-                  sx={{ textDecoration: "line-through", mt: "3" }}
+                  color="text.primary"
+                  sx={{ fontSize: "24px" }}
                 >
                   $199
                 </Typography>
-                <Box sx={{ display: "flex" }}>
-                  <Typography
-                    variant="body2"
-                    color="text.primary"
-                    sx={{ fontSize: "24px" }}
-                  >
-                    $199
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontSize: "14px",
-                      color: "success.main",
-                      mt: "5px",
-                      ml: "5px",
-                    }}
-                  >
-                    52% OFF
-                  </Typography>
-                </Box>
-             
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: "14px",
+                    color: "success.main",
+                    mt: "5px",
+                    ml: "5px",
+                  }}
+                >
+                  {producto.original_price != null && `52% OFF`}
+                </Typography>
+              </Box>
+
               <Grid item>
                 <Stack direction="row" spacing={1} mt={2}>
                   <Chip
@@ -102,10 +102,8 @@ const Cards = ({ productos }) => {
           </Grid>
         </Grid>
       </Paper>
-    );
-  });
-
-  return cards;
-};
+)
+                  ))
+}
 
 export default Cards;
