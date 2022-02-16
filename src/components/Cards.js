@@ -15,6 +15,7 @@ const Cards = ({ productos }) => {
     maxWidth: "100%",
     maxHeight: "100%",
   })
+
   return (
     productos.map((producto) => (
       <Paper
@@ -25,6 +26,8 @@ const Cards = ({ productos }) => {
           flexGrow: 1,
           mb: "2px",
         }}
+        key= {producto.id}
+        id= {producto.id}
       >
         <Grid container>
           <Grid item>
@@ -57,7 +60,7 @@ const Cards = ({ productos }) => {
                   color="text.primary"
                   sx={{ fontSize: "24px" }}
                 >
-                  $199
+                  ${producto.price}
                 </Typography>
                 <Typography
                   variant="body1"
@@ -68,14 +71,14 @@ const Cards = ({ productos }) => {
                     ml: "5px",
                   }}
                 >
-                  {producto.original_price != null && `52% OFF`}
+                  {producto.original_price != null && `${Math.round((producto.price / producto.original_price * 100) - 100)} OFF`}
                 </Typography>
               </Box>
 
               <Grid item>
-                <Stack direction="row" spacing={1} mt={2}>
-                  <Chip
-                    label="Llega mañana"
+              <Stack direction="row" spacing={1} mt={2}>
+              { producto.shipping.free_shipping && <Chip
+                    label="Envio gratis"
                     sx={{
                       color: "#00a650",
                       bgcolor: "#e6f7ee",
@@ -83,7 +86,7 @@ const Cards = ({ productos }) => {
                       fontWeight: 500,
                       p: "2px",
                     }}
-                  />
+                  />}
                   <Chip
                     color="success"
                     sx={{
