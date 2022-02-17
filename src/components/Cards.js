@@ -21,8 +21,8 @@ const Cards = ({ productos }) => {
       <Paper
         sx={{
           p: 2,
-          maxWidth: 890,
-          width: 890,
+          maxWidth: 700,
+          height:200,
           flexGrow: 1,
           mb: "2px",
         }}

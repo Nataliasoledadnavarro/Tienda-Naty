@@ -7,6 +7,7 @@ const App = () => {
   const [busqueda, setBusqueda] = useState("chocolate")
   const [valorDelInput, setValorDelInput] = useState("")
   const [productos, setProductos] = useState([])
+  const [totalResultados, setTotalResultados] = useState(0)
 
 
   useEffect(() => {
@@ -14,24 +15,23 @@ const App = () => {
           .then((res) => res.json())
           .then((data) => {
               setProductos(data.results)
+              setTotalResultados(data.paging.total)
           });
   }, [busqueda]);
 
   const handleChange = (e) => {
       setValorDelInput(e.target.value);
-      console.log(productos)
   };
 
   const handleSubmit = (e) => {
       e.preventDefault();
       setBusqueda(valorDelInput);
-      console.log(productos)
   };
 
   return (
     <Box>
        <Nav handleChange={handleChange} handleSubmit={handleSubmit} />
-      <Main productos={productos}/>
+      <Main productos={productos} busqueda={busqueda} totalResultados={totalResultados}/>
     </Box>
   )
 }

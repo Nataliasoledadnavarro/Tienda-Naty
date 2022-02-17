@@ -1,17 +1,23 @@
 import Cards from "./Cards";
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
+import Filtros from "./Filtros"
 
-const Section = ({productos}) =>{
-   
+const Section = ({ productos, busqueda, totalResultados}) => {
 
-    return(
-        <Container>
-        <Grid container  alignItems="flex-end" direction="column">
-         <Cards productos={productos}/>
-        </Grid>
+
+    return (
+        <Container sx={{ bgcolor: "red"}}>
+            <Grid container  justifyContent= "space-around">
+                <Grid item xs={3} sx={{ bgcolor: "blue" }} direction="column">
+                    <Filtros busqueda={busqueda}  totalResultados={totalResultados} />
+                </Grid>
+                <Grid item xs={8} sx={{ bgcolor: "pink" }} direction="column">
+                    <Cards productos={productos} />
+                </Grid>
+            </Grid>
         </Container>
-        
+
     )
 }
 
