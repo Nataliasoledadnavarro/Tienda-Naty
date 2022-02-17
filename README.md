@@ -8,10 +8,10 @@
 
 ## Podrás:
 <ul>
-    <li>• Ver una lista de productos pre-definida.</li>
-    <li>• Buscar un producto en particular. </li>
-    <li>• Recibir listado de productos con información relevante. </li>
-    <li>• Próximamente: 
+    <li> Ver una lista de productos pre-definida.</li>
+    <li> Buscar un producto en particular. </li>
+    <li> Recibir listado de productos con información relevante. </li>
+    <li> Próximamente: 
                     <ul>
                         <li>Vista de detalles</li>
                         <li>Enrutamiento</li>
