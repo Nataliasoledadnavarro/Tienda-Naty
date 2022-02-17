@@ -1,4 +1,4 @@
-<img src="(https://user-images.githubusercontent.com/84355672/154554650-a758df82-af5c-4d70-af98-95f8a6ba7213.png" whidth = "100%">
+<img src="https://user-images.githubusercontent.com/84355672/154554650-a758df82-af5c-4d70-af98-95f8a6ba7213.png" whidth = "100%">
 
 # Tienda Naty
 
