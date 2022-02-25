@@ -13,7 +13,7 @@ const Section = ({ productos, busqueda, totalResultados}) => {
                     <Filtros busqueda={busqueda}  totalResultados={totalResultados} />
                 </Grid>
                 <Grid item xs={8} sx={{ bgcolor: "pink" }} direction="column">
-                    <Cards productos={productos} />
+                    <Cards productos={productos} busqueda={busqueda} />
                 </Grid>
             </Grid>
         </Container>

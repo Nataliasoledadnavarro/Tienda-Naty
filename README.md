@@ -6,17 +6,26 @@
 
 ## Inicialice este proyecto en paralelo con otros para afianzar conceptos y con el objetivo de ir complejizandolo en la medida que voy profundizando en mi proceso de aprendizaje. 
 
-## Podrás:
+## Implementación:
 <ul>
     <li> Ver una lista de productos pre-definida.</li>
     <li> Buscar un producto en particular. </li>
-    <li> Recibir listado de productos con información relevante. </li>
+    <li> Mortrar tarjetas de resultados. Productos con información relevante. </li>
+    <li> Mostrar nombre de la busqueda. </li>
+    <li> Mostrar cantidad de resultados. </li>
+    <li> Ruteo: 
+                    <ul>
+                        <li>Sección principal.</li>
+                        <li>Tarjetas con link a detalle de producto. Rutas relativas.</li>
+                        <li>Link del logo hacia la busqueda principal.</li>
+                    </ul>
+    </li>
+
     <li> Próximamente: 
                     <ul>
-                        <li>Vista de detalles</li>
-                        <li>Enrutamiento</li>
                         <li>Paginado</li>
                         <li>Filtrado</li>
+                        <li>Responsive</li>
                     </ul>
     </li>
 </ul>
@@ -28,6 +37,7 @@
     <li>Props</li>
     <li>Elevación de estado</li>
     <li>Renderizado condicional</li>
+    <li>Rutas</li>
     <li>useState</li>
     <li>useEffect</li>
     <li>MATERIAL-UI</li>
