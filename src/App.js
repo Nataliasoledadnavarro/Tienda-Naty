@@ -9,7 +9,8 @@ const App = () => {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Busqueda /> }/>
+      <Route path="/" element={<Busqueda /> }/>
+        <Route path="/:busqueda" element={<Busqueda /> }/>
         <Route path="/:busqueda/:producto/:idProducto" element={<DetalleProducto /> }/>
         <Route path="*" element={<Error404 />} />
       </Routes>

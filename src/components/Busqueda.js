@@ -4,38 +4,50 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import Container from "@mui/material/Container";
 import Main from "./Main";
 import Box from "@mui/material/Box";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Busqueda = () => {
-  const [busqueda, setBusqueda] = useState("chocolate");
-  const [valorDelInput, setValorDelInput] = useState("");
-  const [productos, setProductos] = useState([]);
-  const [totalResultados, setTotalResultados] = useState(0);
+
+  const[valorDelInput, setValorDelInput] = useState("")
+   const [searchParams, setSearchParams] = useSearchParams({
+    query: "motorola",
+  });
+  const [productos, setProductos] = useState([])
+  const [totalResultados, setTotalResultados] = useState(0)
+
 
   useEffect(() => {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${busqueda}`)
+    fetch(
+      `https://api.mercadolibre.com/sites/MLA/search?q=${searchParams.get("query")}&q=gifquebusxadte&offset=2&limit=20`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProductos(data.results);
-        setTotalResultados(data.paging.total);
+        setTotalResultados(data.paging.total)
       });
-  }, [busqueda]);
+  }, [searchParams]);
+
 
   const handleChange = (e) => {
-    setValorDelInput(e.target.value);
+    setValorDelInput(e.target.value)
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setBusqueda(valorDelInput);
-  };
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+setSearchParams({
+  query:valorDelInput
+})
+  }
+
 
   return (
     <Box sx={{ bgcolor: "#fff159", boxShadow: 0, height: "50px" }}>
       <FormControl
+        component="form"
+        onSubmit={handleSubmit}
         variant="outlined"
         sx={{ boxShadow: 1, bgcolor: "white", width: "40%", ml: 50 }}
       >
@@ -44,6 +56,7 @@ const Busqueda = () => {
           onChange={handleChange}
           sx={{ borderRadius: "2px" }}
           size="small"
+          value={valorDelInput}
           endAdornment={
             <InputAdornment position="end">
               <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
@@ -58,11 +71,7 @@ const Busqueda = () => {
           }
         />
       </FormControl>
-      <Main
-        productos={productos}
-        busqueda={busqueda}
-        totalResultados={totalResultados}
-      />
+      <Main productos={productos} busqueda={searchParams.get("query")} totalResultados={totalResultados}/>
     </Box>
   );
 };

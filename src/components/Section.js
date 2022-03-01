@@ -3,9 +3,9 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Filtros from "./Filtros"
 
+
 const Section = ({ productos, busqueda, totalResultados}) => {
-
-
+    
     return (
         <Container sx={{ bgcolor: "red"}}>
             <Grid container  justifyContent= "space-around">
@@ -17,7 +17,6 @@ const Section = ({ productos, busqueda, totalResultados}) => {
                 </Grid>
             </Grid>
         </Container>
-
     )
 }
 
