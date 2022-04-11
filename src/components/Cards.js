@@ -30,7 +30,7 @@ const Cards = ({ productos, busqueda }) => {
       id={producto.id}
     >
       <Grid container>
-        <Grid item>
+        <Grid item >
         <Link to={`/${busqueda}/${producto.title}/${producto.id}`}>
             <ButtonBase sx={{ width: 200, height: 180 }}>
               <Img alt={producto.title} src={producto.thumbnail} />
@@ -46,6 +46,7 @@ const Cards = ({ productos, busqueda }) => {
                 variant="body1"
                 component="p"
                 sx={{ fontSize: "20px", fontWeight: "100" }}
+                color="black"
               >
                 {producto.title}
               </Typography>
