@@ -1,5 +1,6 @@
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,8 +12,28 @@ import banner5 from "../img/D_NQ_923898-MLA49591001534_042022-OO.webp";
 import banner6 from "../img/D_NQ_942274-MLA49633371395_042022-OO.webp";
 import banner7 from "../img/D_NQ_980498-MLA49613671241_042022-OO.webp";
 import { styled } from "@mui/material/styles";
+import CardPromo from "./CardPromo";
+import {
+  BsFillCreditCard2BackFill as TarjetaCredito,
+  BsFillCreditCard2FrontFill as TarjetaDebito,
+} from "react-icons/bs";
+import { FaHandHoldingUsd as Cuotas } from "react-icons/fa";
+import { GiMoneyStack as Efectivo } from "react-icons/gi";
+import { AiOutlinePlus as Mas } from "react-icons/ai";
+import Divider from "@mui/material/Divider";
 
 const Home = () => {
+  const imagenes = [
+    banner1,
+    banner2,
+    banner3,
+    banner4,
+    banner5,
+    banner6,
+    banner7,
+  ];
+  const tamañoPantalla = window.innerWidth;
+
   const settings = {
     className: "carousel",
     dots: true,
@@ -36,29 +57,64 @@ const Home = () => {
     <Grid container>
       <Grid item xs={12}>
         <Slider {...settings}>
-          <Box>
-            <Img src={banner1}></Img>
-          </Box>
-          <Box>
-            <Img src={banner2}></Img>
-          </Box>
-          <Box>
-            <Img src={banner3}></Img>
-          </Box>
-          <Box>
-            <Img src={banner4}></Img>
-          </Box>
-          <Box>
-            <Img src={banner5}></Img>
-          </Box>
-          <Box>
-            <Img src={banner6}></Img>
-          </Box>
-          <Box>
-            <Img src={banner7}></Img>
-          </Box>
+          {imagenes.map((banner) => (
+            <Box>
+              <Img src={banner}></Img>
+            </Box>
+          ))}
         </Slider>
       </Grid>
+      <Container
+        sx={{
+          mt: 6,
+        }}
+      >
+        <Grid
+          item
+          xs={12}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            boxShadow: 3,
+            height: "100px",
+            bgcolor: "white",
+          }}
+        >
+          <CardPromo
+            titulo="Tarjeta de crédito"
+            link="Ver promociones bancarias"
+            icono={<TarjetaCredito />}
+            Key={1}
+          />
+          {tamañoPantalla > 500 && (
+            <CardPromo
+              titulo="Tarjeta de débito"
+              link="Ver más"
+              icono={<TarjetaDebito />}
+              Key={2}
+            />
+          )}
+          {tamañoPantalla > 700 && (
+            <CardPromo
+              titulo="Cuotas sin tarjeta"
+              link="Conocé Mercado Crédito"
+              icono={<Cuotas />}
+              Key={3}
+            />
+          )}
+          {tamañoPantalla > 900 && (
+            <CardPromo
+              titulo="Efectivo"
+              link="Ver más"
+              icono={<Efectivo />}
+              Key={4}
+            />
+          )}
+          <Divider orientation="vertical" flexItem />
+          <CardPromo titulo="" link="" icono={<Mas />} Key={4} />
+        </Grid>
+      </Container>
     </Grid>
   );
 };
