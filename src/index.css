@@ -1,8 +1,13 @@
-body{
-    margin:0;
-    background-color: rgba(0,0,0,.1);
+body {
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
+}
+
+
+.css-83ijpv-MuiTypography-root {
+  font-size: 14px !important;
 }
