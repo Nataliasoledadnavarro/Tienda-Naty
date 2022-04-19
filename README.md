@@ -1,4 +1,8 @@
-<img src="https://user-images.githubusercontent.com/84355672/154554650-a758df82-af5c-4d70-af98-95f8a6ba7213.png" whidth = "100%">
+<img src="https://user-images.githubusercontent.com/84355672/164041573-b84fac4c-4fcf-4342-9166-3eaec174d5f9.png" whidth = "100%">
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+<img src="https://user-images.githubusercontent.com/84355672/164042161-5abb773c-f392-4735-8d7a-ce00dd2bf305.png" whidth = "100%">
 
 # Tienda Naty
 
@@ -8,11 +12,13 @@
 
 ## Implementación:
 <ul>
-    <li> Ver una lista de productos pre-definida.</li>
-    <li> Buscar un producto en particular. </li>
+    <li> Barra de navegación</li>
+    <li> Formulario de búsqueda</li>
+    <li> Redireccionamiento a resultados de la búsqueda.</li>
     <li> Mortrar tarjetas de resultados. Productos con información relevante. </li>
     <li> Mostrar nombre de la busqueda. </li>
     <li> Mostrar cantidad de resultados. </li>
+    <li> Paginado </li>
     <li> Ruteo: 
                     <ul>
                         <li>Sección principal.</li>
@@ -23,8 +29,7 @@
 
     <li> Próximamente: 
                     <ul>
-                        <li>Paginado</li>
-                        <li>Filtrado</li>
+                        <li>Detalle de producto</li>
                         <li>Responsive</li>
                     </ul>
     </li>
@@ -37,7 +42,7 @@
     <li>Props</li>
     <li>Elevación de estado</li>
     <li>Renderizado condicional</li>
-    <li>Rutas</li>
+    <li>React-router-dom</li>
     <li>useState</li>
     <li>useEffect</li>
     <li>MATERIAL-UI</li>
