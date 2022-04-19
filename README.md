@@ -26,15 +26,14 @@
                         <li>Tarjetas con link a detalle de producto. Rutas relativas.</li>
                         <li>Link del logo hacia la busqueda principal.</li>
                     </ul>
-    </li>
-
-    <li> Próximamente: 
-                    <ul>
-                        <li>Detalle de producto</li>
-                        <li>Responsive</li>
-                    </ul>
-    </li>
+    </li>    
 </ul>
+
+## Proximamente:
+ <ul> 
+        <li>Detalle de producto</li>
+        <li>Responsive</li>            
+ </ul>
 
 
 ## Recursos:
