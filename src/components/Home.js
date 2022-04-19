@@ -49,8 +49,8 @@ const Home = () => {
 
   const Img = styled("img")({
     display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%",
+    width: "100%",
+    height: "100%",
   });
 
   return (
