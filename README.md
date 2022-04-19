@@ -14,6 +14,7 @@
 <ul>
     <li> Barra de navegación</li>
     <li> Formulario de búsqueda</li>
+    <li>Carousel</li>
     <li> Redireccionamiento a resultados de la búsqueda.</li>
     <li> Mortrar tarjetas de resultados. Productos con información relevante. </li>
     <li> Mostrar nombre de la busqueda. </li>
@@ -36,7 +37,7 @@
 </ul>
 
 
-## Implementaciones:
+## Recursos:
  <ul>
     <li>Componentes</li>
     <li>Props</li>
