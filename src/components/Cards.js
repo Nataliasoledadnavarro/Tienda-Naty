@@ -30,8 +30,8 @@ const Cards = ({ productos, busqueda }) => {
       id={producto.id}
     >
       <Grid container>
-        <Grid item >
-        <Link to={`/${busqueda}/${producto.title}/${producto.id}`}>
+        <Grid item>
+          <Link to={`/${busqueda}/${producto.title}/${producto.id}`}>
             <ButtonBase sx={{ width: 200, height: 180 }}>
               <Img alt={producto.title} src={producto.thumbnail} />
             </ButtonBase>
@@ -40,16 +40,16 @@ const Cards = ({ productos, busqueda }) => {
         <Grid item sm container>
           <Grid item xs>
             <CardActions>
-            <Link to={`/${busqueda}/${producto.title}/${producto.id}`}>
-              <Typography
-                gutterBottom
-                variant="body1"
-                component="p"
-                sx={{ fontSize: "20px", fontWeight: "100" }}
-                color="black"
-              >
-                {producto.title}
-              </Typography>
+              <Link to={`/${busqueda}/${producto.title}/${producto.id}`}>
+                <Typography
+                  gutterBottom
+                  variant="body1"
+                  component="p"
+                  sx={{ fontSize: "20px", fontWeight: "100" }}
+                  color="black"
+                >
+                  {producto.title}
+                </Typography>
               </Link>
             </CardActions>
             <Typography
