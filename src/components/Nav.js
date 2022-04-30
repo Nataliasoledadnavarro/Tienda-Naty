@@ -53,7 +53,13 @@ const NavDesktop = () => {
       sx={{
         flexGrow: 1,
         bgcolor: "#fff159",
-        height: { xl: "110px", lg: "110px", md: "80px", sm: "80px", xs: "80px" },
+        height: {
+          xl: "110px",
+          lg: "110px",
+          md: "80px",
+          sm: "80px",
+          xs: "80px",
+        },
         display: "flex",
         alignItems: "center",
       }}
@@ -63,7 +69,7 @@ const NavDesktop = () => {
         sx={{
           bgcolor: "#fff159",
           boxShadow: 0,
-          width: { xl: "80%", lg: "100%" },
+          width: { xl: "80%", lg: "100%"},
           m: "auto",
         }}
       >
