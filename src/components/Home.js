@@ -35,7 +35,6 @@ const Home = () => {
   const tamañoPantalla = window.innerWidth;
 
   const settings = {
-    className: "carousel",
     dots: true,
     arrows: false,
     infinite: true,
@@ -55,11 +54,11 @@ const Home = () => {
 
   return (
     <Grid container>
-      <Grid item xs={12}>
+      <Grid item xs={12} >
         <Slider {...settings}>
           {imagenes.map((banner) => (
-            <Box>
-              <Img src={banner}></Img>
+            <Box >
+              <Img  src={banner} alt="banner de ofertas"></Img>
             </Box>
           ))}
         </Slider>

@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
 
-
 const CardPromo = ({ titulo, link, icono }) => {
   return (
     <Card
@@ -33,7 +32,7 @@ const CardPromo = ({ titulo, link, icono }) => {
         <Typography sx={{ fontSize: 16 }} color="text.primary">
           {titulo}
         </Typography>
-     
+
         <Link to="">
           <Typography
             size="small"

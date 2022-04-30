@@ -28,8 +28,6 @@ const ResultadosBusqueda = () => {
   let ultimaPagina = Math.trunc(totalResultados / 20 - 1);
 
   const handleChange = (event, value) => {
-    console.log(event);
-    console.log(value);
     navigate(`/${params.busqueda}/page/${value}`);
   };
 
