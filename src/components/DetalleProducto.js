@@ -6,12 +6,18 @@ import ListItem from "@mui/material/ListItem";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
-import { height } from "@mui/system";
+import Typography from "@mui/material/Typography";
+import Rating from "@mui/material/Rating";
 
 const DetalleProducto = () => {
   const params = useParams();
   const [producto, setProducto] = useState({});
   const [descripcion, setDescripcion] = useState({});
+  const [indiceImagen, setIndiceImagen] = useState(0);
+
+  const handleMouseEnter = (index) => {
+    setIndiceImagen(index);
+  };
 
   useEffect(() => {
     fetch(`https://api.mercadolibre.com/items/${params.idProducto}`)
@@ -30,13 +36,26 @@ const DetalleProducto = () => {
   console.log(producto);
   console.log(descripcion);
   return (
-    <Container sx={{ boxShadow: 1, marginTop: "50px" }}>
-      <Box sx={{ width: "60%", height: "500px", display: "flex" }}>
-        <List sx={{ width: "10%" }}>
+    <Container
+      sx={{
+        boxShadow: 1,
+        marginTop: "50px",
+        display: { xs: "block", md: "flex" },
+      }}
+    >
+      <Box
+        sx={{
+          width: { xs: "100%", md: "60%" },
+          height: "500px",
+          display: "flex",
+        }}
+      >
+        <List sx={{ width: "20%" }}>
           {producto.pictures &&
-            producto.pictures.slice(0, 8).map((producto) => (
+            producto.pictures.slice(0, 8).map((producto, index) => (
               <ListItem
                 disablePadding
+                onMouseEnter={() => handleMouseEnter(index)}
                 sx={{
                   display: "flex",
                   alignItem: "center",
@@ -61,23 +80,51 @@ const DetalleProducto = () => {
               </ListItem>
             ))}
         </List>
-        <Box width="90%">
+        <Box sx={{ width: "80%" }}>
           {producto.pictures && (
             <Card
               sx={{
-                boxShadow: 0,
-                width: "300px",
-                height: "450px",
+                boxShadow: "none",
+                minWidth: 200,
+
+                maxHeight: "450px",
               }}
             >
               <CardMedia
                 component="img"
                 alt="hola"
-                image={producto.pictures[0].url} /*resolver el hover*/
+                image={
+                  producto.pictures[indiceImagen].url
+                } /*resolver el hover*/
               ></CardMedia>
             </Card>
           )}
         </Box>
+      </Box>
+      <Box sx={{ width: { xs: "100%", md: "40%" }, height: "500px", ml: 1 }}>
+        <Typography
+          variant="body2"
+          fontSize="14px"
+          component="p"
+          color="#9e9e9e"
+        >
+          {producto.condition === "new" ? "Nuevo" : "Usado"} /{" "}
+          {producto.available_quantity && producto.available_quantity}{" "}
+          disponibles.
+        </Typography>
+        <Typography variant="h6" component="p">
+          {producto.title}
+        </Typography>
+        <Rating
+          sx={{ color: "#3483fa" }}
+          name="simple-controlled"
+          value={4.3}
+          precision={0.5}
+          size="small"
+        />
+        <Typography variant="h4" component="p" sx={{ fontWeight: 100 }}>
+          $ {producto.price}
+        </Typography>
       </Box>
     </Container>
   );
