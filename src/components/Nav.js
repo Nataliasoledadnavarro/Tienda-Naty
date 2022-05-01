@@ -15,12 +15,10 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import { FiShoppingCart } from "react-icons/fi";
 import MenuIcon from "@mui/icons-material/Menu";
 import Busqueda from "../components/Busqueda";
@@ -32,7 +30,7 @@ const Img = styled("img")({
   magin: 0,
 });
 
-const NavDesktop = () => {
+const Nav = () => {
   const [categoriaElegida, setCategoriaElegida] = useState("");
   const [categorias, setCategorias] = useState([]);
 
@@ -69,7 +67,7 @@ const NavDesktop = () => {
         sx={{
           bgcolor: "#fff159",
           boxShadow: 0,
-          width: { xl: "80%", lg: "100%"},
+          width: { xl: "80%", lg: "100%" },
           m: "auto",
         }}
       >
@@ -156,8 +154,8 @@ const NavDesktop = () => {
                     >
                       {categorias.map((categoria) => (
                         <MenuItem
+                          key={categoria.id}
                           value={categoria.id}
-                          Key={categoria.id}
                           sx={{ fontSize: "14px" }}
                         >
                           {categoria.name}
@@ -311,4 +309,4 @@ const NavDesktop = () => {
   );
 };
 
-export default NavDesktop;
+export default Nav;

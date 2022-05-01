@@ -8,33 +8,43 @@ import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Rating from "@mui/material/Rating";
+import IconButton from "@mui/material/IconButton";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const DetalleProducto = () => {
   const params = useParams();
   const [producto, setProducto] = useState({});
-  const [descripcion, setDescripcion] = useState({});
   const [indiceImagen, setIndiceImagen] = useState(0);
+  const [reviews, setReviews] = useState({});
+  const [like, setLike] = useState(false);
 
   const handleMouseEnter = (index) => {
     setIndiceImagen(index);
+  };
+
+  const handleClickLike = (e) => {
+    if (!like) {
+      setLike(true);
+    }
+    if (like) {
+      setLike(false);
+    }
   };
 
   useEffect(() => {
     fetch(`https://api.mercadolibre.com/items/${params.idProducto}`)
       .then((res) => res.json())
       .then((data) => {
-        fetch(
-          `https://api.mercadolibre.com/items/${params.idProducto}/description`
-        )
+        fetch(`https://api.mercadolibre.com/reviews/item/${params.idProducto}`)
           .then((res) => res.json())
-          .then((descripcion) => {
+          .then((reviews) => {
             setProducto(data);
-            setDescripcion(descripcion);
+            setReviews(reviews);
           });
       });
-  }, []);
-  console.log(producto);
-  console.log(descripcion);
+  }, [params.idProducto]);
+
   return (
     <Container
       sx={{
@@ -55,6 +65,7 @@ const DetalleProducto = () => {
             producto.pictures.slice(0, 8).map((producto, index) => (
               <ListItem
                 disablePadding
+                key={producto.id}
                 onMouseEnter={() => handleMouseEnter(index)}
                 sx={{
                   display: "flex",
@@ -66,7 +77,6 @@ const DetalleProducto = () => {
                   width: "50px",
                   margin: "5px",
                 }}
-                Key={producto.id}
               >
                 <Card sx={{ boxShadow: 0 }}>
                   <CardMedia
@@ -86,22 +96,38 @@ const DetalleProducto = () => {
               sx={{
                 boxShadow: "none",
                 minWidth: 200,
-
                 maxHeight: "450px",
               }}
             >
               <CardMedia
                 component="img"
                 alt="hola"
-                image={
-                  producto.pictures[indiceImagen].url
-                } /*resolver el hover*/
+                image={producto.pictures[indiceImagen].url}
               ></CardMedia>
             </Card>
           )}
         </Box>
       </Box>
-      <Box sx={{ width: { xs: "100%", md: "40%" }, height: "500px", ml: 1 }}>
+      <Box
+        sx={{ width: { xs: "100%", md: "40%" }, height: "500px", ml: 2, mt: 2 }}
+      >
+        <Box
+          width="100%"
+          sx={{ display: "flex", justifyContent: "flex-end", mb: 1 }}
+        >
+          <IconButton
+            size="medium"
+            aria-label="Corazon"
+            onClick={handleClickLike}
+          >
+            {like ? (
+              <FavoriteIcon sx={{ color: "#3483fa" }} />
+            ) : (
+              <FavoriteBorderIcon sx={{ color: "#3483fa" }} />
+            )}
+          </IconButton>
+        </Box>
+
         <Typography
           variant="body2"
           fontSize="14px"
@@ -116,13 +142,15 @@ const DetalleProducto = () => {
           {producto.title}
         </Typography>
         <Rating
-          sx={{ color: "#3483fa" }}
+          sx={{ color: "#3483fa", mt: 2 }}
           name="simple-controlled"
-          value={4.3}
+          value={
+            reviews.rating_average !== undefined ? reviews.rating_average : 0
+          }
           precision={0.5}
           size="small"
         />
-        <Typography variant="h4" component="p" sx={{ fontWeight: 100 }}>
+        <Typography variant="h4" component="p" sx={{ fontWeight: 100, mt: 1 }}>
           $ {producto.price}
         </Typography>
       </Box>

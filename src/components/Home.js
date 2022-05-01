@@ -56,8 +56,8 @@ const Home = () => {
     <Grid container>
       <Grid item xs={12} >
         <Slider {...settings}>
-          {imagenes.map((banner) => (
-            <Box >
+          {imagenes.map((banner, index) => (
+            <Box key={index} >
               <Img  src={banner} alt="banner de ofertas"></Img>
             </Box>
           ))}
@@ -84,14 +84,14 @@ const Home = () => {
             titulo="Tarjeta de crédito"
             link="Ver promociones bancarias"
             icono={<TarjetaCredito />}
-            Key={1}
+            key={1}
           />
           {tamañoPantalla > 500 && (
             <CardPromo
               titulo="Tarjeta de débito"
               link="Ver más"
               icono={<TarjetaDebito />}
-              Key={2}
+              key={2}
             />
           )}
           {tamañoPantalla > 700 && (
@@ -99,7 +99,7 @@ const Home = () => {
               titulo="Cuotas sin tarjeta"
               link="Conocé Mercado Crédito"
               icono={<Cuotas />}
-              Key={3}
+              key={3}
             />
           )}
           {tamañoPantalla > 900 && (
@@ -107,7 +107,7 @@ const Home = () => {
               titulo="Efectivo"
               link="Ver más"
               icono={<Efectivo />}
-              Key={4}
+              key={4}
             />
           )}
           <Divider orientation="vertical" flexItem />
