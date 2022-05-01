@@ -28,32 +28,31 @@ const ResultadosBusqueda = () => {
   let ultimaPagina = Math.trunc(totalResultados / 20 - 1);
 
   const handleChange = (event, value) => {
-    console.log(event);
-    console.log(value);
     navigate(`/${params.busqueda}/page/${value}`);
   };
 
   return (
     <Grid sx={{ width: "100%", height: "100%", pt: 6 }}>
       <Container>
-        <Grid container justifyContent="space-around">
-          <Grid item xs={3} direction="column">
+        <Grid container justifyContent="space-around"  direction={{xs:"column", sm:"column", md:"row"}}>
+          <Grid item xs={3}>
             <Filtros
               busqueda={params.busqueda}
               totalResultados={totalResultados}
             />
           </Grid>
-          <Grid item xs={8} direction="column">
+          <Grid item xs={8}  >
             <Cards productos={productos} busqueda={params.busqueda} />
           </Grid>
         </Grid>
         {ultimaPagina >= 1 && (
-          <Stack spacing={2}>
+          <Stack spacing={2}  alignItems="center" mt={3} >
             <Pagination
               count={ultimaPagina > 40 ? 40 : ultimaPagina}
               shape="rounded"
               page={Number(params.pagina)}
               onChange={handleChange}
+             
             />
           </Stack>
         )}

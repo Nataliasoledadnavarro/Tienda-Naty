@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -22,11 +22,13 @@ import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { FiShoppingCart } from "react-icons/fi";
-
+import MenuIcon from "@mui/icons-material/Menu";
 import Busqueda from "../components/Busqueda";
 
 const Img = styled("img")({
   width: "80%",
+  minWidth: "110px",
+  maxWidth: "150px",
   magin: 0,
 });
 
@@ -51,7 +53,13 @@ const NavDesktop = () => {
       sx={{
         flexGrow: 1,
         bgcolor: "#fff159",
-        height: "110px",
+        height: {
+          xl: "110px",
+          lg: "110px",
+          md: "80px",
+          sm: "80px",
+          xs: "80px",
+        },
         display: "flex",
         alignItems: "center",
       }}
@@ -59,30 +67,35 @@ const NavDesktop = () => {
       <AppBar
         position="static"
         sx={{
-          display: "flex",
           bgcolor: "#fff159",
           boxShadow: 0,
-          width: "80%",
+          width: { xl: "80%", lg: "100%"},
           m: "auto",
         }}
       >
-        <Toolbar>
-          {/*<IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          <Box
+            sx={{
+              width: {
+                xl: "15%",
+                lg: "15%",
+                md: "25%",
+                sm: "35%",
+                xs: "40%",
+              },
+            }}
           >
-            <MenuIcon />
-  </IconButton>*/}
-          <Box sx={{ width: "15%" }}>
             <Link to="/">
-              <Img src={logo} alt="logo manos" className="logo"></Img>
+              <Img src={logo} alt="logo manos"></Img>
             </Link>
             <Box
               sx={{
-                display: "flex",
+                display: { lg: "flex", md: "none", sm: "none", xs: "none" },
                 alignItems: "center",
                 justifyContent: "center",
                 width: "80%",
@@ -110,7 +123,17 @@ const NavDesktop = () => {
                 bgcolor: "#fff159",
               }}
             >
-              <List sx={{ display: "flex" }}>
+              <List
+                sx={{
+                  display: {
+                    xl: "flex",
+                    lg: "none",
+                    md: "none",
+                    sm: "none",
+                    xs: "none",
+                  },
+                }}
+              >
                 <ListItem disablePadding>
                   <FormControl
                     fullWidth
@@ -180,13 +203,25 @@ const NavDesktop = () => {
 
           <Box
             sx={{
-              width: "35%",
+              width: {
+                xl: "35%",
+                lg: "35%",
+                md: "20%",
+                sm: "15%",
+                xs: "10%",
+              },
             }}
           >
             <Box
               sx={{
                 height: "60%",
-                display: "flex",
+                display: {
+                  xl: "flex",
+                  lg: "flex",
+                  md: "none",
+                  sm: "none",
+                  xs: "none",
+                },
                 alignItems: "flex-end",
                 ml: 1,
               }}
@@ -209,13 +244,21 @@ const NavDesktop = () => {
                 width: "100%",
                 bgcolor: "#fff159",
                 ml: 1,
+                display: "flex",
               }}
             >
               <List
                 sx={{
-                  display: "flex",
+                  display: {
+                    xl: "flex",
+                    lg: "flex",
+                    md: "none",
+                    sm: "none",
+                    xs: "none",
+                  },
                   justifyContent: "space-around",
                   height: "40%",
+                  width: "70%",
                 }}
               >
                 <ListItem disablePadding>
@@ -233,14 +276,33 @@ const NavDesktop = () => {
                     <ListItemText secondary="Mis cuentas" />
                   </ListItemButton>
                 </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton sx={{ p: 0 }}>
-                    <ListItemIcon>
-                      <FiShoppingCart />
-                    </ListItemIcon>
-                  </ListItemButton>
-                </ListItem>
               </List>
+              <Box
+                sx={{
+                  width: "95%",
+                  display: "flex",
+                  flexDirection: { xs: "column", sm: "initial" },
+                }}
+              >
+                <IconButton
+                  aria-label="menu"
+                  sx={{
+                    display: {
+                      xl: "none",
+                      lg: "none",
+                      md: "flex",
+                      sm: "flex",
+                      xs: "flex",
+                    },
+                  }}
+                >
+                  <MenuIcon />
+                </IconButton>
+
+                <IconButton aria-label="carrito" size="small">
+                  <FiShoppingCart />
+                </IconButton>
+              </Box>
             </Box>
           </Box>
         </Toolbar>
