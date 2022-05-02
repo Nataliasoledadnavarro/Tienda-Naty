@@ -4,12 +4,12 @@ import Container from "@mui/material/Container";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import banner1 from "../img/D_NQ_616919-MLA49612752598_042022-OO.webp";
-import banner2 from "../img/D_NQ_619381-MLA49609927853_042022-OO.webp";
-import banner3 from "../img/D_NQ_620081-MLA49613189312_042022-OO.webp";
-import banner4 from "../img/D_NQ_916500-MLA49613032017_042022-OO.webp";
-import banner5 from "../img/D_NQ_923898-MLA49591001534_042022-OO.webp";
-import banner6 from "../img/D_NQ_942274-MLA49633371395_042022-OO.webp";
+import banner1 from "../img/D_NQ_682340-MLA49741544009_042022-OO.webp";
+import banner2 from "../img/D_NQ_689771-MLA49805531493_042022-OO.webp";
+import banner3 from "../img/D_NQ_756685-MLA49771401400_042022-OO.webp";
+import banner4 from "../img/D_NQ_778878-MLA49774814146_042022-OO.webp";
+import banner5 from "../img/D_NQ_825721-MLA49805151978_042022-OO.webp";
+import banner6 from "../img/D_NQ_967094-MLA49783916425_042022-OO.webp";
 import banner7 from "../img/D_NQ_980498-MLA49613671241_042022-OO.webp";
 import { styled } from "@mui/material/styles";
 import CardPromo from "./CardPromo";
@@ -54,11 +54,11 @@ const Home = () => {
 
   return (
     <Grid container>
-      <Grid item xs={12} >
+      <Grid item xs={12}>
         <Slider {...settings}>
           {imagenes.map((banner, index) => (
-            <Box key={index} >
-              <Img  src={banner} alt="banner de ofertas"></Img>
+            <Box key={index}>
+              <Img src={banner} alt="banner de ofertas"></Img>
             </Box>
           ))}
         </Slider>
