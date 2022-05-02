@@ -24,8 +24,8 @@
     <li> Formulario de búsqueda</li>
     <li>Carousel</li>
     <li> Redireccionamiento a resultados de la búsqueda.</li>
-    <li> Mortrar tarjetas de resultados. Productos con información relevante. </li>
-    <li> Mostrar nombre de la busqueda. </li>
+    <li> Mostrar tarjetas de resultados. Productos con información relevante. </li>
+    <li> Mostrar nombre de la búsqueda. </li>
     <li> Mostrar cantidad de resultados. </li>
     <li> Paginado </li>
         <li> Detalle de Producto:
@@ -48,7 +48,7 @@
 ## Proximamente:
  <ul> 
         <li>Agregar info a detalle producto</li>
-        <li>Mejorar responsive e imágenes</li>            
+        <li>Mejorar responsive</li>            
  </ul>
 
 
