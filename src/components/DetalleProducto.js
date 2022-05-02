@@ -56,7 +56,6 @@ const DetalleProducto = () => {
       <Box
         sx={{
           width: { xs: "100%", md: "60%" },
-          height: "500px",
           display: "flex",
         }}
       >
@@ -90,18 +89,24 @@ const DetalleProducto = () => {
               </ListItem>
             ))}
         </List>
-        <Box sx={{ width: "80%" }}>
+        <Box
+          sx={{
+            width: "80%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {producto.pictures && (
             <Card
               sx={{
                 boxShadow: "none",
-                minWidth: 200,
-                maxHeight: "450px",
+                width: 300,
               }}
             >
               <CardMedia
                 component="img"
-                alt="hola"
+                alt={`Imagen de ${producto.title}`}
                 image={producto.pictures[indiceImagen].url}
               ></CardMedia>
             </Card>
